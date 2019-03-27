@@ -9,6 +9,7 @@ import java.math.BigDecimal;
  * Created by jt on 6/13/17.
  */
 @Data
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Ingredient {
 
@@ -32,6 +33,10 @@ public class Ingredient {
         this.amount = amount;
         this.uom = uom;
         this.recipe = recipe;
+    }
+
+    protected boolean canEqual(final Object other) {
+        return other instanceof Ingredient;
     }
 
 }
